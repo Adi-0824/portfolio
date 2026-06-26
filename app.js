@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Subtitle Typing Animation
   const words = [
-    "M.Sc. Computer Science Graduate",
+    "B.Tech Computer Science & Engineering Graduate",
     "Java Spring Boot Developer",
     "Full-Stack Software Engineer",
     "Enterprise Solutions Creator"
