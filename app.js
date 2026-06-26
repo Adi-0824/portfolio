@@ -139,31 +139,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const toast = document.getElementById('toast');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Show mock loading state on submit button
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
       submitBtn.innerHTML = 'Sending...';
 
-      setTimeout(() => {
-        // Reset button
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
+      const formData = new FormData(contactForm);
 
-        // Reset form
-        contactForm.reset();
+      try {
+        const response = await fetch('https://formspree.io/f/xdkozwvq', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
 
-        // Show toast
-        toast.classList.add('show');
-        
-        // Hide toast after 4s
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 4000);
-      }, 1200);
+        if (response.ok) {
+          contactForm.reset();
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 4000);
+        } else {
+          alert('Oops! Something went wrong. Please email directly at adityamudaliyar98066@gmail.com');
+        }
+      } catch (err) {
+        alert('Network error. Please email directly at adityamudaliyar98066@gmail.com');
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+
     });
   }
 });

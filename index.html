@@ -51,7 +51,7 @@
       </div>
 
       <p class="hero-desc">
-        A passionate Computer Science post-graduate specializing in enterprise software development. Developer of the
+        A passionate B.Tech Computer Science & Engineering graduate specializing in enterprise software development. Developer of the
         secure, automated Hospital Management System using Java Spring Boot.
       </p>
 
@@ -490,24 +490,25 @@
 
         <!-- Contact Form -->
         <div class="glass-card contact-form">
-          <form id="contact-form">
+          <form id="contact-form" action="https://formspree.io/f/xdkozwvq" method="POST">
+            <input type="hidden" name="_replyto" value="adityamudaliyar98066@gmail.com">
             <div class="form-grid">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" class="form-input" placeholder="Your Name" required>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" class="form-input" placeholder="Your Email" required>
+                <input type="email" id="email" name="email" class="form-input" placeholder="Your Email" required>
               </div>
             </div>
             <div class="form-group full-width" style="margin-bottom: 1.5rem;">
               <label for="subject">Subject</label>
-              <input type="text" id="subject" class="form-input" placeholder="Inquiry Subject" required>
+              <input type="text" id="subject" name="subject" class="form-input" placeholder="Inquiry Subject" required>
             </div>
             <div class="form-group full-width" style="margin-bottom: 1.5rem;">
               <label for="message">Message</label>
-              <textarea id="message" class="form-input" placeholder="Your Message" required></textarea>
+              <textarea id="message" name="message" class="form-input" placeholder="Your Message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" id="btn-submit-message">Send Message</button>
           </form>
